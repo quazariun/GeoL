@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>My first three.js app</title>
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="./three.js"></script>
+  <script type="module">
+    import { OrbitControls } from './OrbitControls.js';
+    import { BufferGeometryUtils } from './BufferGeometryUtils.js';
+
+    let vertices, mesh, renderer, camera, scene, controls;
+
+    async function load() {
+
+      await fetch(`./mnt.json`)
+        .then(res => res.json())
+        .then(data => {
+          vertices = new Float32Array(data.index);
+        });
+      init();
+    }
+
+    function init() {
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 10000);
+
+      renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      controls = new OrbitControls(camera, renderer.domElement);
+      const geometry = new THREE.BufferGeometry();
+
+      camera.position.set(0, 20, 100);
+      controls.update();
+
+
+      // itemSize = 3 because there are 3 values (components) per vertex
+      geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+
+
+      const material = new THREE.MeshBasicMaterial({
+        color: 0xFF0000
+      });
+      
+      mesh = new THREE.Line(geometry, material);
+
+      //BufferGeometryUtils.toTrianglesDrawMode ( geometry, THREE.PointsDrawMode);
+      //mesh.drawMode = THREE.PointsDrawMode;
+      //mesh.drawMode = THREE.TriangleFanDrawMode;
+      //mesh.drawMode = THREE.TrianglesDrawMode; // default
+
+
+      const light = new THREE.PointLight(0xff0000, 1, 100);
+      light.position.set(50, 50, 50);
+
+      scene.add(mesh);
+      scene.add(light);
+
+      camera.position.z = 345;
+      camera.position.x = 100;
+
+      animate();
+    }
+
+
+    function animate() {
+      requestAnimationFrame(animate);
+      //mesh.rotation.x += 0.01;
+      //mesh.rotation.y += 0.01;
+      controls.update();
+
+      renderer.render(scene, camera);
+
+    }
+
+    window.onload = load;
+  </script>
+</body>
+
+</html>
