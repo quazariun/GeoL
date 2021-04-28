@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import './Canvas.css';
 
 
@@ -6,6 +6,7 @@ export default class Canvas extends Component {
   
   constructor(props) {
     super(props);
+
 
     //expandFullScreen();
     // Resize screen when the browser has triggered the resize event
@@ -19,25 +20,37 @@ export default class Canvas extends Component {
   expandFullScreen() {
     this.width = window.innerWidth;
     this.height = window.innerHeight;
+}
+
+  componentDidMount() {
+    this.expandFullScreen();
+    window.addEventListener('resize', this.expandFullScreen);
   }
 
+  componentDidUpdate() {
+  }
+
+  static defaultProps = { 
+
+  }
 
   render() {
+    
     const {
       props: {
+        width,
+        height,
         shader,
         context
-      },
-      state: {
-        teste
       },
       expandFullScreen,
     } = this;
 
     return(
-      <canvas>
+      <canvas { ...this.props }>
         Seu navegador não possuí compatibilidade com o elemento Canvas do HTML 5. 
       </canvas>
     )
   }
+
 }

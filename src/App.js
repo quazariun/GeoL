@@ -4,7 +4,6 @@ import './App.css';
 // Componentes
 import Canvas from './components/Canvas/Canvas.js'
 
-/*
 class teste extends Component {
   constructor(props){
     super(props);
@@ -21,9 +20,6 @@ class teste extends Component {
        shader,
        context
      },
-     state: {
-
-     },
      print_teste,
    } = this;
 
@@ -37,7 +33,7 @@ class teste extends Component {
     
   }
 }
-*/
+
 
 function App() {
 
