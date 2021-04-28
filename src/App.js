@@ -1,18 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+
+// Componentes
+import Canvas from './components/Canvas/Canvas.js'
+
+/*
+class teste extends Component {
+  constructor(props){
+    super(props);
+  }
+
+  print_teste() {
+    console.log("teste");
+  }
+
+  render(){
+   
+   const {
+     props: {
+       shader,
+       context
+     },
+     state: {
+
+     },
+     print_teste,
+   } = this;
+
+   print_teste();
+
+    return(
+      <div className="App">
+        <Canvas />
+      </div>
+    );
+    
+  }
+}
+*/
 
 function App() {
+
   return (
     <div className="App">
-      <header>
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>We now have Auth!</h1>
-      </header>
-      <AmplifySignOut />
+      <Canvas />
     </div>
   );
 }
 
-export default withAuthenticator(App);
+export default App;
