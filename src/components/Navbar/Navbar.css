@@ -1,0 +1,10 @@
+.top-navbar {
+  background-image: linear-gradient(to left, rgba(189, 62, 62, 0), rgb(0, 0, 0));
+  float: right;
+  width: 95%;
+  height: 3vh;
+}
+
+.icon {
+  height: 80%;
+}

@@ -1,5 +1,6 @@
 canvas {
-  background-color:cadetblue;
-  width: 100vw;
-  height: 100vh;
+  float: right;
+  background-color:rgb(212, 232, 255);
+  width: 95%;
+  height: 97vh;
 }

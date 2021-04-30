@@ -1,0 +1,15 @@
+.right-sidebar {
+  background-image: linear-gradient(to top, rgba(20, 4, 4, 0), rgb(0, 0, 0));
+  
+  float: left;
+  width: 5%;
+  height: 100vh;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.main-logo {
+  width: 80%;
+  height: 8%;
+  margin-top: 14%;
+  
+}
