@@ -1,0 +1,50 @@
+import { GL } from '../components/Canvas/Canvas.js'
+
+
+// import shaders from '../shaders'
+
+import def_frag from '../shaders/fragment/default.frag';
+
+export default class Utils {
+
+  // Procura e retorna o ID do Canvas
+  static getCanvas(id) {
+    const canvas = document.getElementById(id);
+
+    if (!canvas) {
+      console.error(`Não há elemento Canvas com o id: ${id} nesta página.`);
+      return null;
+    }
+
+    return canvas;
+  };
+
+  // Dado um elemento Canvas HTML 5, retorna o contexto WEBGL 2.
+  static getGLContext(canvas) {
+    return canvas.getContext('webgl2') || console.error('WebGL2 não está disponível neste navegador.');
+  };
+
+  // Given a WebGL context and an id for a shader script,
+  // return a compiled shader
+  static getShader(name, type) {
+
+    console.log( def_frag);
+
+    // let shader = shaders[name];
+let shader;
+let shaderString;
+
+    type === 'vshader' ? shader = GL.createShader(GL.VERTEX_SHADER) : shader = GL.createShader(GL.FRAGMENT_SHADER);
+
+    GL.shaderSource(shader, shaderString);
+    GL.compileShader(shader);
+
+    if (!GL.getShaderParameter(shader, GL.COMPILE_STATUS)) {
+      console.error(GL.getShaderInfoLog(shader));
+      return null;
+    }
+
+    return shader;
+  };
+
+};
