@@ -1,11 +1,10 @@
 #version 300 es
-
 precision mediump float;
 
-uniform vec3 uModelColor;
-
+    // Color that is the result of this shader
 out vec4 fragColor;
 
 void main(void) {
-  fragColor = vec4(uModelColor, 1.0);
+      // Set the result as red
+  fragColor = vec4(1.0, 0.0, 0.0, 1.0);
 }

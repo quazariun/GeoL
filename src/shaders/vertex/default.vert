@@ -1,12 +1,10 @@
-#version 300 es
+    #version 300 es
+    precision mediump float;
 
-precision mediump float;
+    // Supplied vertex position attribute
+    in vec3 aVertexPosition;
 
-uniform mat4 uModelViewMatrix;
-uniform mat4 uProjectionMatrix;
-
-in vec3 aVertexPosition;
-
-void main(void) {
-  gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aVertexPosition, 1.0);
-}
+    void main(void) {
+      // Simply set the position in clipspace coordinates
+      gl_Position = vec4(aVertexPosition, 1.0);
+    }

@@ -1,9 +1,6 @@
 import { GL } from '../components/Canvas/Canvas.js'
 
-
-// import shaders from '../shaders'
-
-import def_frag from '../shaders/fragment/default.frag';
+import shaders from '../shaders'
 
 export default class Utils {
 
@@ -24,15 +21,12 @@ export default class Utils {
     return canvas.getContext('webgl2') || console.error('WebGL2 não está disponível neste navegador.');
   };
 
-  // Given a WebGL context and an id for a shader script,
-  // return a compiled shader
+
+  // Dado o nome do Shader (referenciado na pasta shaders/index.html) e o tipo, retorna o shader compilado.
   static getShader(name, type) {
 
-    console.log( def_frag);
-
-    // let shader = shaders[name];
-let shader;
-let shaderString;
+    let shader;
+    let shaderString = shaders[name];
 
     type === 'vshader' ? shader = GL.createShader(GL.VERTEX_SHADER) : shader = GL.createShader(GL.FRAGMENT_SHADER);
 
