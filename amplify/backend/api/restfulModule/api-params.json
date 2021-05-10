@@ -1,0 +1,49 @@
+{
+  "paths": [
+    {
+      "name": "/elements",
+      "lambdaFunction": "lambdaElements",
+      "privacy": {
+        "protected": true,
+        "auth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ],
+        "unauth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ]
+      },
+      "policyResourceName": "/elements"
+    }
+  ],
+  "resourceName": "restfulModule",
+  "apiName": "restfulModule",
+  "functionArns": [
+    {
+      "lambdaFunction": "lambdaElements"
+    }
+  ],
+  "privacy": {
+    "auth": 1,
+    "unauth": 1,
+    "authRoleName": "amplify-amplify4d4c92ba642d4-staging-135352-authRole",
+    "unAuthRoleName": "amplify-amplify4d4c92ba642d4-staging-135352-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "lambdaElements",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}

@@ -18,9 +18,7 @@ export default class Canvas extends Component {
     let vs = Utils.getShader(this.props.vshader, 'vshader');
     let fs = Utils.getShader(this.props.fshader, 'fshader');
     PROGRAM = Program.startProgram(vs, fs);
-
-
-
+    
     const vertices = [
       -0.5, 0.5, 0,
       -0.5, -0.5, 0,
@@ -54,14 +52,16 @@ export default class Canvas extends Component {
     GL.bindBuffer(GL.ELEMENT_ARRAY_BUFFER, null);
 
     GL.bindVertexArray(squareVAO);
-    GL.drawElements(GL.TRIANGLE_STRIP, indices.length, GL.UNSIGNED_SHORT, 0);
+
+    this.draw();
 
     console.log(PROGRAM);
     console.log(GL);
 
   }
 
-  componentDidUpdate() {
+  draw(){ 
+    GL.drawElements(GL.TRIANGLE_STRIP, 6, GL.UNSIGNED_SHORT, 0);
   }
 
   static defaultProps = {

@@ -1,0 +1,35 @@
+{
+  "paths": [
+    {
+      "name": "/canvas",
+      "lambdaFunction": "lambdaElements",
+      "privacy": {
+        "open": true
+      },
+      "policyResourceName": "/canvas"
+    }
+  ],
+  "resourceName": "canvas",
+  "apiName": "canvas",
+  "functionArns": [
+    {
+      "lambdaFunction": "lambdaElements"
+    }
+  ],
+  "privacy": {
+    "auth": 0,
+    "unauth": 0,
+    "authRoleName": "amplify-amplify4d4c92ba642d4-staging-135352-authRole",
+    "unAuthRoleName": "amplify-amplify4d4c92ba642d4-staging-135352-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "lambdaElements",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}
